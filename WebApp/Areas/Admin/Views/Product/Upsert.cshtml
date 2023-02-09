@@ -54,7 +54,7 @@
                 </div>
                 <div class="mb-3">
                     <label asp-for="Product.ImageUrl"></label>
-                    <input type="file" id="uploadBox" name="file" class="form-control" required />
+                    <input type="file" id="uploadBox" name="file" class="form-control" />
                 </div>
                 <div class="mb-3 col-6">
                     <label asp-for="Product.CategoryId"></label>
@@ -73,7 +73,7 @@
                 <div class="col-12">
                     @if (Model.Product.Id != 0)
                     {
-                        <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+                        <button type="submit" class="btn btn-primary" onclick="return ValidateInput()" style="width:150px">Update</button>
                     }
                     else
                     {
@@ -96,6 +96,12 @@
         <partial name="_ValidationScriptsPartial" />
     }
     <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+            toolbar_mode: 'floating',
+        });
+
         function ValidateInput(){
             if(document.getElementById("uploadBox").value==""){
                 Swal.fire({

@@ -10,6 +10,7 @@ using WebApp.Models.ViewModels;
 
 namespace WebApp.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
