@@ -12,7 +12,7 @@ function loadDataTable() {
         "columns": [
             { "data": "title", "width": "15%" },
             { "data": "isbn", "width": "15%" },
-            { "data": "price", "width": "15%" },
+            { "data": "price", "width": "5%" },
             { "data": "author", "width": "15%" },
             { "data": "category.name", "width": "8%" },
             {
@@ -27,7 +27,7 @@ function loadDataTable() {
                             </div>
                         `
                 },
-                "width": "15%"
+                "width": "19%"
             },
         ]
     });
