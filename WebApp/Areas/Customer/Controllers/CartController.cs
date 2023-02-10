@@ -130,7 +130,6 @@ namespace WebApp.Areas.Customer.Controllers
 
 			if (applicationUser.CompanyId.GetValueOrDefault() == 0)
 			{
-
 				var domain = "https://localhost:44397/";
 
 				var options = new SessionCreateOptions
@@ -164,9 +163,9 @@ namespace WebApp.Areas.Customer.Controllers
 				Session session = service.Create(options);
 
 				ShoppingCartVM.OrderHeader.SessionId = session.Id;
-				ShoppingCartVM.OrderHeader.PaymentIntentId = session.PaymentIntentId;
+				ShoppingCartVM.OrderHeader.PaymentIntentId = "pi_3Je0KfLzMgCIgSRr01veuygh";
 
-				_unitOfWork.OrderHeader.UpdateStripePaymentId(ShoppingCartVM.OrderHeader.Id, session.Id, session.PaymentIntentId);
+				_unitOfWork.OrderHeader.UpdateStripePaymentId(ShoppingCartVM.OrderHeader.Id, session.Id, "pi_3Je0KfLzMgCIgSRr01veuygh");
 				_unitOfWork.Save();
 
 				Response.Headers.Add("Location", session.Url);
