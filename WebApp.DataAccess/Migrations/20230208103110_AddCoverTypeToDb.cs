@@ -45,11 +45,11 @@ namespace WebApp.Migrations
 
             migrationBuilder.RenameTable(
                 name: "Categories",
-                newName: "Сategories");
+                newName: "Categories");
 
             migrationBuilder.AddPrimaryKey(
-                name: "PK_Сategories",
-                table: "Сategories",
+                name: "PK_Categories",
+                table: "Categories",
                 column: "Id");
         }
     }

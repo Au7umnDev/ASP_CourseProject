@@ -12,7 +12,7 @@ namespace WebApp.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Сategories",
+                name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -23,7 +23,7 @@ namespace WebApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Сategories", x => x.Id);
+                    table.PrimaryKey("PK_Categories", x => x.Id);
                 });
         }
 
@@ -31,7 +31,7 @@ namespace WebApp.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Сategories");
+                name: "Categories");
         }
     }
 }
