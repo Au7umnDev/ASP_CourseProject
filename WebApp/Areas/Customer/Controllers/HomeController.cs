@@ -5,6 +5,7 @@ using System.Security.Claims;
 using WebApp.DataAccess.Repository;
 using WebApp.DataAccess.Repository.IRepository;
 using WebApp.Models;
+using WebApp.Utility;
 
 namespace WebApp.Areas.Customer.Controllers
 {
@@ -55,13 +56,15 @@ namespace WebApp.Areas.Customer.Controllers
             if(cartFromDb == null)
             {
                 _unitOfWork.ShoppingCart.Add(shoppingCart);
+                _unitOfWork.Save();
+                HttpContext.Session.SetInt32(StaticDetails.SessionCart, 
+                    _unitOfWork.ShoppingCart.GetAll(u=>u.ApplicationUserId==claim.Value).ToList().Count);
             }
             else
             {
                 _unitOfWork.ShoppingCart.IncrementCount(cartFromDb, shoppingCart.Count);
+                _unitOfWork.Save();
             }
-
-            _unitOfWork.Save();
 
             return RedirectToAction(nameof(Index));
         }
